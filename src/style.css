@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@import "tailwindcss";
+
+/* https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer theme {
+  @theme {
+    /* -- Breakpoints (Emulating Bootstrap v3 names/values) -- */
+    --breakpoint-sm: 768px;
+    --breakpoint-md: 992px;
+    --breakpoint-lg: 1200px;
+
+    /* -- Colors (Defined as CSS Custom Properties) -- */
+
+    /* --- Core Brand Blues --- */
+    --color-primary: #0f5b99; /* Main interactive blue, site nav bg, active pills */
+    --color-primary-dark: #0c426b; /* Darker shade, footer bottom bar, contatore bg */
+    --color-secondary: #315572; /* Link color, some buttons hover/focus */
+    --color-navigation-main: #294860; /* Main nav background (top) */
+    /* --color-navigation-site uses --color-primary */
+
+    /* --- Functional Colors --- */
+    --color-link: var(--color-secondary); /* Default link color */
+    --color-text-default: #333; /* Base text color from BS3 */
+    --color-text-muted: #777; /* Muted text from BS3 */
+    --color-text-dark: #444; /* Darker gray text from unipa overrides */
+    --color-text-highlight: #2f506c; /* Section headings */
+    --color-border-light: #e8e8e8; /* Light borders (dividers) */
+    --color-border-medium: #ddd; /* Medium borders */
+    --color-border-default: #ccc; /* Default borders (form inputs) */
+    --color-bg-light: #f5f5f5; /* Light background shade (page sidebar nav, well) */
+    --color-bg-white: #ffffff;
+    --color-bg-blue-box: #294860; /* .box.box-blue */
+
+    /* --- Target Colors (for specific sections/borders/badges) --- */
+    --color-target-futuri-studenti: #cd9124;
+    --color-target-studenti: #d57e24;
+    --color-target-laureati: #b52f1a;
+    --color-target-international: #43780d; /* Simplified name */
+    --color-target-docenti: #3b588c;
+    --color-target-personale: #3486ae;
+    --color-target-imprese: #7c7c7c;
+
+    /* --- Footer Specific Colors --- */
+    --color-footer-bg: var(--color-primary);
+    --color-footer-text: var(--color-bg-white);
+    --color-footer-bottom-bar: var(--color-primary-dark);
+    --color-footer-link: var(--color-bg-white);
+    --color-footer-link-hover: #dcdcdc; /* Estimate based on .copyright a:hover */
+
+    /* --- Accent Colors (Infographics/Number Badges) --- */
+    --color-accent-red-damask: #e27240;
+    --color-accent-fire-bush: #e28d40;
+    --color-accent-olive-drab: #60a823; /* Adjusted from #88BE5A in numbers */
+    --color-accent-mojo: #c94139;
+    --color-accent-violet-red: #763b82; /* Added name */
+    --color-accent-indian-red: #cd5c5c; /* Added name */
+    --color-accent-dark-green: #366509; /* Added name */
+    --color-accent-dark-blue: #1162a3; /* Added name */
+    --color-accent-light-blue: #369fe3; /* Added name */
+
+    /* --- Bootstrap Semantic Colors (Optional - for potential alert emulation) --- */
+    /* Generally better to style components directly */
+    /* --color-info-text: #31708f; */
+    /* --color-info-bg: #d9edf7; */
+    /* --color-info-border: #bce8f1; */
+    /* ... similar for success, warning, danger */
+
+    /* --- Font Family --- */
+    /* Defines font-sans, font-serif etc. */
+    --font-sans: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    /* --font-serif: Georgia, Cambria, "Times New Roman", Times, serif; */ /* Uncomment if needed */
+    --font-mono:
+      Menlo, Monaco, Consolas, "Courier New", monospace; /* From BS3 code styles */
+
+    /* --- Font Sizes --- */
+    /* Define if Tailwind defaults (text-xs, sm, base, lg, xl...) aren't sufficient */
+    /* Using specific pixel values like the source might conflict with rem-based defaults */
+    /* Recommendation: Use Tailwind scale and adjust base size in @layer base */
+    /* Example: --text-h1: 36px; --text-h2: 30px; ... */
+
+    /* --- Font Weights --- */
+    /* Override defaults if needed, e.g., map 'light' to 300 */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-extrabold: 800; /* Match Montserrat weights */
+    --font-weight-black: 900; /* Match Montserrat weights */
+
+    /* --- Line Heights (Leading) --- */
+    /* Keep Tailwind defaults or define specific values based on BS3 (1.428...) */
+    /* --leading-normal: 1.42857143; */ /* Example direct override */
+
+    /* --- Border Radius --- */
+    /* Default is '0px' based on unipa overrides tendency */
+    /* Defines rounded-sm, rounded, rounded-md, rounded-lg etc. */
+    --radius-DEFAULT: 0px;
+    --radius-sm: 2px; /* 0.125rem */
+    --radius-md: 4px; /* 0.25rem - Matches BS3 default */
+    --radius-lg: 6px; /* 0.375rem - Matches BS3 large */
+    --radius-xl: 8px; /* 0.5rem */
+    /* Add specific pixel values if needed beyond utilities */
+    --radius-4px: 4px;
+    --radius-6px: 6px;
+
+    /* --- Shadows --- */
+    /* Define box-shadows if Tailwind defaults aren't sufficient */
+    /* Example: --shadow-panel: 0 1px 1px rgb(0 0 0 / 0.05); */
+
+    /* --- Spacing --- */
+    /* Define custom spacing values if needed frequently */
+    /* Example: --spacing-15px: 15px; */
+
+    /* --- Z-Index --- */
+    /* Define if needed for custom layering */
+    /* Example: --z-index-dropdown: 1000; --z-index-modal: 1050; */
+  }
+}
+
+zlayer base {
+  body {
+    color: var(--color-text-default);
+    background-color: var(--color-bg-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
